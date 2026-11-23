@@ -1,0 +1,70 @@
+{
+  "adminPasswordHash": null,
+  "settings": {
+    "siteName": "GOO GAME PLAY",
+    "tagline": "Play Instantly. Anywhere. Anytime.",
+    "adsEnabled": true,
+    "monetagDirectLink": "https://uplcm.com/4/12282219",
+    "adsDisclosure": "Sponsored Partner Link",
+    "maintenanceMode": false,
+    "analyticsEnabled": true
+  },
+  "gameOverrides": {
+    "2048": {
+      "enabled": true
+    },
+    "snake": {
+      "enabled": true
+    },
+    "tetris": {
+      "enabled": true
+    },
+    "flappy-bird": {
+      "enabled": true
+    },
+    "tic-tac-toe": {
+      "enabled": true
+    },
+    "memory-match": {
+      "enabled": true
+    },
+    "minesweeper": {
+      "enabled": true
+    },
+    "breakout": {
+      "enabled": true
+    },
+    "sudoku": {
+      "enabled": true
+    },
+    "15-puzzle": {
+      "enabled": true
+    }
+  },
+  "categoryOverrides": {
+    "arcade": {
+      "enabled": true
+    },
+    "puzzle": {
+      "enabled": true
+    },
+    "strategy": {
+      "enabled": true
+    },
+    "memory": {
+      "enabled": true
+    },
+    "classic": {
+      "enabled": true
+    }
+  },
+  "translationOverrides": {},
+  "analytics": {
+    "playsByGame": {},
+    "totalSessions": 0,
+    "recentEvents": []
+  },
+  "leaderboard": {},
+  "errorLogs": [],
+  "contactMessages": []
+}

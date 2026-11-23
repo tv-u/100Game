@@ -1,0 +1,6 @@
+{
+  "name": "GOO GAME PLAY",
+  "description": "Play Instantly. Anywhere. Anytime. Worldwide HTML5 browser mini-games arcade with 10 playable games, offline PWA support, and 22 languages.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

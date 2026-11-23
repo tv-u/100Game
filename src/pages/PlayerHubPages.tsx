@@ -24,21 +24,35 @@ export const InstructionsPage: React.FC = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-        <div className="lg:col-span-4 flex lg:flex-col gap-2 overflow-x-auto pb-1">
-          {visibleGames.map((g) => (
-            <button
-              key={g.slug}
-              type="button"
-              onClick={() => setSelectedSlug(g.slug)}
-              className={`px-4 py-3 min-h-[44px] rounded-xl text-left text-sm font-semibold whitespace-nowrap lg:whitespace-normal transition-colors shrink-0 ${
-                active?.slug === g.slug
-                  ? 'bg-violet-600 text-white'
-                  : 'bg-white dark:bg-[#111524] border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-200'
-              }`}
-            >
-              {g.title}
-            </button>
-          ))}
+        <div className="lg:col-span-4 space-y-2">
+          <select
+            aria-label="Choose a game"
+            value={active?.slug || selectedSlug}
+            onChange={(e) => setSelectedSlug(e.target.value)}
+            className="w-full min-h-[44px] px-3.5 rounded-xl border border-slate-200 dark:border-white/15 bg-white dark:bg-[#0D132B] text-sm font-semibold text-slate-900 dark:text-white"
+          >
+            {visibleGames.map((g) => (
+              <option key={g.slug} value={g.slug}>
+                #{String(g.number).padStart(2, '0')} · {g.title}
+              </option>
+            ))}
+          </select>
+          <div className="hidden lg:flex flex-col gap-1.5 max-h-[420px] overflow-y-auto pr-1">
+            {visibleGames.map((g) => (
+              <button
+                key={g.slug}
+                type="button"
+                onClick={() => setSelectedSlug(g.slug)}
+                className={`px-3.5 py-2.5 min-h-[40px] rounded-xl text-left text-xs font-semibold transition-colors shrink-0 ${
+                  active?.slug === g.slug
+                    ? 'bg-violet-600 text-white'
+                    : 'bg-white dark:bg-[#0D132B] border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-200'
+                }`}
+              >
+                #{String(g.number).padStart(2, '0')} {g.title}
+              </button>
+            ))}
+          </div>
         </div>
 
         {active && (
@@ -283,21 +297,35 @@ export const LeaderboardPage: React.FC = () => {
         </p>
       </div>
 
-      <div className="flex items-center gap-1.5 overflow-x-auto pb-1">
-        {visibleGames.map((g) => (
-          <button
-            key={g.slug}
-            type="button"
-            onClick={() => setSelectedSlug(g.slug)}
-            className={`px-3.5 py-2 min-h-[40px] rounded-xl text-xs font-semibold whitespace-nowrap shrink-0 transition-colors ${
-              selectedSlug === g.slug
-                ? 'bg-violet-600 text-white'
-                : 'bg-white dark:bg-[#111524] border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300'
-            }`}
-          >
-            {g.title}
-          </button>
-        ))}
+      <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+        <select
+          aria-label="Filter leaderboard by game"
+          value={selectedSlug}
+          onChange={(e) => setSelectedSlug(e.target.value)}
+          className="min-h-[44px] px-4 rounded-xl border border-slate-200 dark:border-white/15 bg-white dark:bg-[#0D132B] text-sm font-semibold text-slate-900 dark:text-white"
+        >
+          {visibleGames.map((g) => (
+            <option key={g.slug} value={g.slug}>
+              #{String(g.number).padStart(2, '0')} · {g.title}
+            </option>
+          ))}
+        </select>
+        <div className="flex items-center gap-1.5 overflow-x-auto pb-1">
+          {visibleGames.slice(0, 12).map((g) => (
+            <button
+              key={g.slug}
+              type="button"
+              onClick={() => setSelectedSlug(g.slug)}
+              className={`px-3.5 py-2 min-h-[40px] rounded-xl text-xs font-semibold whitespace-nowrap shrink-0 transition-colors ${
+                selectedSlug === g.slug
+                  ? 'bg-violet-600 text-white'
+                  : 'bg-white dark:bg-[#0D132B] border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300'
+              }`}
+            >
+              {g.title}
+            </button>
+          ))}
+        </div>
       </div>
 
       <div className="rounded-2xl border border-slate-200 dark:border-white/10 bg-white dark:bg-[#111524] overflow-hidden">

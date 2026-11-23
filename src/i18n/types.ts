@@ -23,6 +23,7 @@ export interface TranslationBundle {
     faq: string;
     sitemap: string;
     playRandom: string;
+    settings: string;
   };
   hero: {
     tagline: string;
@@ -34,6 +35,7 @@ export interface TranslationBundle {
   };
   common: {
     playNow: string;
+    seeAll: string;
     pause: string;
     resume: string;
     restart: string;
@@ -99,13 +101,17 @@ export interface TranslationBundle {
     submitScore: string;
     scoreSubmitted: string;
     playerNamePlaceholder: string;
+    guestMode: string;
   };
   sections: {
     featuredTitle: string;
+    quickGamesTitle: string;
+    priorityTitle: string;
     popularTitle: string;
     newTitle: string;
     trendingTitle: string;
     categoriesTitle: string;
+    recommendedTitle: string;
     whyPlayTitle: string;
     whyPlaySubtitle: string;
     favoritesEmpty: string;
@@ -120,9 +126,13 @@ export interface TranslationBundle {
   categories: {
     arcade: string;
     puzzle: string;
+    board: string;
+    'racing-sports': string;
+    casual: string;
     strategy: string;
-    memory: string;
-    classic: string;
+    'word-edu': string;
+    adventure: string;
+    skill: string;
   };
   legal: {
     privacyTitle: string;

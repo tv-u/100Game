@@ -23,6 +23,38 @@
   }
 }
 
+/* Reference-locked neon gaming dashboard surfaces & glows */
+.neon-panel {
+  background: linear-gradient(180deg, rgba(16, 23, 52, 0.92) 0%, rgba(10, 15, 36, 0.96) 100%);
+  border: 1px solid rgba(99, 102, 241, 0.22);
+  box-shadow: 0 12px 32px -12px rgba(3, 6, 20, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.neon-card-purple {
+  border: 1px solid rgba(168, 85, 247, 0.58);
+  box-shadow: 0 0 26px -6px rgba(168, 85, 247, 0.36);
+}
+
+.neon-card-emerald {
+  border: 1px solid rgba(52, 211, 153, 0.55);
+  box-shadow: 0 0 26px -6px rgba(16, 185, 129, 0.32);
+}
+
+.neon-card-cyan {
+  border: 1px solid rgba(56, 189, 248, 0.58);
+  box-shadow: 0 0 26px -6px rgba(56, 189, 248, 0.36);
+}
+
+.neon-card-gold {
+  border: 1px solid rgba(251, 191, 36, 0.55);
+  box-shadow: 0 0 22px -6px rgba(245, 158, 11, 0.3);
+}
+
+.neon-card-coral {
+  border: 1px solid rgba(244, 63, 94, 0.55);
+  box-shadow: 0 0 22px -6px rgba(244, 63, 94, 0.3);
+}
+
 /* Safe area support for notched Android/iOS devices */
 .pb-safe {
   padding-bottom: max(0.5rem, env(safe-area-inset-bottom));

@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { GAMES_CATALOG, GAME_CATEGORIES } from '../src/data/games.ts';
+import { GAMES_CATALOG, GAME_CATEGORIES, PRIORITY_GAME_SLUGS } from '../src/data/games.ts';
+import { REGISTERED_GAME_SLUGS } from '../src/games/registry.ts';
 import { LANGUAGE_CODES, SUPPORTED_LANGUAGES } from '../src/config/site.ts';
 import { getTranslations } from '../src/i18n/index.ts';
 import { buildLanguageSitemapXml, buildRouteSeo, buildSitemapIndexXml } from '../src/seo/serverMeta.ts';
@@ -13,20 +14,34 @@ import {
   type LogicalAction,
 } from '../src/controls/types.ts';
 
-test('Catalog contains all 10 unique games and 5 categories', () => {
-  assert.equal(GAMES_CATALOG.length, 10);
+test('Catalog contains all 100 unique games, 9 categories, 10 priority slugs, and 100% playable registry coverage', () => {
+  assert.equal(GAMES_CATALOG.length, 100);
   const slugs = new Set(GAMES_CATALOG.map((g) => g.slug));
-  assert.equal(slugs.size, 10);
-  assert.equal(GAME_CATEGORIES.length, 5);
+  assert.equal(slugs.size, 100);
+  assert.equal(GAME_CATEGORIES.length, 9);
+  assert.equal(PRIORITY_GAME_SLUGS.length, 10);
+
+  const registered = new Set(REGISTERED_GAME_SLUGS);
+  assert.equal(registered.size, 100);
+  for (const g of GAMES_CATALOG) {
+    assert.ok(registered.has(g.slug), `Missing playable engine registration for slug: ${g.slug}`);
+  }
+  for (const pSlug of PRIORITY_GAME_SLUGS) {
+    assert.ok(slugs.has(pSlug), `Missing priority slug: ${pSlug}`);
+  }
 });
 
-test('All 22 languages resolve cleanly without missing navigation or game keys', () => {
+test('All 22 languages resolve cleanly across 9 categories and nav/game keys', () => {
   assert.equal(SUPPORTED_LANGUAGES.length, 22);
   for (const code of LANGUAGE_CODES) {
     const bundle = getTranslations(code);
     assert.ok(bundle.nav.home.length > 0, `Missing nav.home for ${code}`);
     assert.ok(bundle.hero.headline.length > 0, `Missing hero.headline for ${code}`);
     assert.ok(bundle.common.playNow.length > 0, `Missing common.playNow for ${code}`);
+    assert.ok(bundle.common.seeAll.length > 0, `Missing common.seeAll for ${code}`);
+    for (const cat of GAME_CATEGORIES) {
+      assert.ok(bundle.categories[cat.id]?.length > 0, `Missing category ${cat.id} for ${code}`);
+    }
     for (const g of GAMES_CATALOG) {
       assert.ok(bundle.games[g.slug]?.title.length > 0, `Missing game title ${g.slug} for ${code}`);
     }
@@ -37,30 +52,34 @@ test('All 22 languages resolve cleanly without missing navigation or game keys',
   assert.equal(ur?.dir, 'rtl');
 });
 
-test('SSR SEO metadata generates unique canonical, hreflang, and JSON-LD for game pages', () => {
-  const seo = buildRouteSeo('/hi/games/snake/', 'https://googameplay.com');
-  assert.equal(seo.isNotFound, false);
-  assert.equal(seo.lang, 'hi');
-  assert.equal(seo.dir, 'ltr');
-  assert.equal(seo.canonicalUrl, 'https://googameplay.com/hi/games/snake/');
-  assert.ok(seo.headTags.includes('hreflang="x-default"'));
-  assert.ok(seo.headTags.includes('hreflang="ar"'));
-  assert.ok(seo.headTags.includes('"@type":"VideoGame"'));
-  assert.ok(seo.headTags.includes('"@type":"BreadcrumbList"'));
+test('SSR SEO metadata generates unique canonical, hreflang, and JSON-LD for all 100 game pages', () => {
+  for (const g of GAMES_CATALOG) {
+    const seo = buildRouteSeo(`/en/games/${g.slug}/`, 'https://googameplay.com');
+    assert.equal(seo.isNotFound, false, `Unexpected 404 SEO for ${g.slug}`);
+    assert.equal(seo.canonicalUrl, `https://googameplay.com/en/games/${g.slug}/`);
+    assert.ok(seo.headTags.includes('"@type":"VideoGame"'), `Missing VideoGame JSON-LD for ${g.slug}`);
+  }
+
+  const hiSeo = buildRouteSeo('/hi/games/snake/', 'https://googameplay.com');
+  assert.equal(hiSeo.lang, 'hi');
+  assert.equal(hiSeo.dir, 'ltr');
+  assert.ok(hiSeo.headTags.includes('hreflang="x-default"'));
+  assert.ok(hiSeo.headTags.includes('hreflang="ar"'));
+  assert.ok(hiSeo.headTags.includes('"@type":"BreadcrumbList"'));
 
   const notFound = buildRouteSeo('/en/non-existent-route/', 'https://googameplay.com');
   assert.equal(notFound.isNotFound, true);
   assert.ok(notFound.headTags.includes('noindex, nofollow'));
 });
 
-test('XML Sitemap index and localized sitemaps cover all 22 languages and 10 games', () => {
+test('XML Sitemap index and localized sitemaps cover all 22 languages and 100 games', () => {
   const indexXml = buildSitemapIndexXml('https://googameplay.com');
   for (const code of LANGUAGE_CODES) {
     assert.ok(indexXml.includes(`/sitemap-${code}.xml`));
   }
   const esSitemap = buildLanguageSitemapXml('https://googameplay.com', 'es');
   for (const g of GAMES_CATALOG) {
-    assert.ok(esSitemap.includes(`/es/games/${g.slug}/`));
+    assert.ok(esSitemap.includes(`/es/games/${g.slug}/`), `Missing ${g.slug} from XML sitemap`);
   }
   assert.ok(esSitemap.includes('hreflang="x-default"'));
 });

@@ -26,10 +26,10 @@ export const LOCALES_GROUP_A: Record<string, DeepPartial<TranslationBundle>> = {
     },
     hero: {
       tagline: 'तुरंत खेलें। कहीं भी। कभी भी।',
-      headline: 'बिना डाउनलोड तुरंत खेलने के लिए 10 बेहतरीन ब्राउज़र गेम्स',
+      headline: 'बिना डाउनलोड तुरंत खेलने के लिए 100 बेहतरीन ब्राउज़र गेम्स',
       subheadline:
-        'अपने मोबाइल या कंप्यूटर ब्राउज़र में आर्केड, पज़ल और स्ट्रैटेजी गेम्स तुरंत खेलें — बिना किसी APK, अकाउंट या प्रतीक्षा के।',
-      ctaPrimary: 'सभी गेम्स देखें',
+        'अपने मोबाइल या कंप्यूटर ब्राउज़र में आर्केड, पज़ल, बोर्ड, रेसिंग और स्ट्रैटेजी गेम्स तुरंत खेलें — बिना किसी APK, अकाउंट या प्रतीक्षा के।',
+      ctaPrimary: 'सभी 100 गेम्स देखें',
       ctaSecondary: 'कंट्रोल गाइड',
       instantPlayNote: 'कोई APK नहीं · कोई लॉगिन नहीं · टच और कीबोर्ड तैयार',
     },
@@ -114,11 +114,15 @@ export const LOCALES_GROUP_A: Record<string, DeepPartial<TranslationBundle>> = {
       totalMinutes: 'सक्रिय मिनट',
     },
     categories: {
-      arcade: 'आर्केड',
+      arcade: 'आर्केड व एक्शन',
       puzzle: 'पज़ल',
+      board: 'बोर्ड गेम्स',
+      'racing-sports': 'रेसिंग व स्पोर्ट्स',
+      casual: 'कैज़ुअल',
       strategy: 'स्ट्रैटेजी',
-      memory: 'मेमोरी',
-      classic: 'क्लासिक',
+      'word-edu': 'वर्ड व एजुकेशनल',
+      adventure: 'एडवेंचर',
+      skill: 'स्किल व कॉम्पिटिटिव',
     },
     legal: {
       privacyTitle: 'गोपनीयता नीति',
@@ -164,8 +168,8 @@ export const LOCALES_GROUP_A: Record<string, DeepPartial<TranslationBundle>> = {
     },
     hero: {
       tagline: 'Juega al instante. En cualquier lugar. En cualquier momento.',
-      headline: 'Diez minijuegos HTML5 listos para jugar al instante',
-      subheadline: 'Disfruta clásicos de arcade, puzle y estrategia en móvil o PC sin descargas ni registros.',
+      headline: '100 minijuegos HTML5 listos para jugar al instante',
+      subheadline: 'Disfruta arcade, puzle, mesa, carreras y estrategia en móvil o PC sin descargas ni registros.',
       ctaPrimary: 'Explorar Juegos',
       ctaSecondary: 'Guía de Controles',
     },
@@ -187,7 +191,17 @@ export const LOCALES_GROUP_A: Record<string, DeepPartial<TranslationBundle>> = {
       howToPlay: 'Cómo jugar',
       sponsoredLabel: 'Publicidad',
     },
-    categories: { arcade: 'Arcade', puzzle: 'Puzle', strategy: 'Estrategia', memory: 'Memoria', classic: 'Clásicos' },
+    categories: {
+      arcade: 'Arcade y Acción',
+      puzzle: 'Puzle',
+      board: 'Juegos de Mesa',
+      'racing-sports': 'Carreras y Deportes',
+      casual: 'Casual',
+      strategy: 'Estrategia',
+      'word-edu': 'Palabras y Educativos',
+      adventure: 'Aventura',
+      skill: 'Habilidad y Competitivo',
+    },
     games: {
       snake: { title: 'Snake Arcade', shortDescription: 'Guía la serpiente, recoge orbes y evita chocar.' },
       '2048': { title: '2048 Fusión Neón', shortDescription: 'Desliza y combina fichas iguales hasta alcanzar 2048.' },
@@ -210,15 +224,25 @@ export const LOCALES_GROUP_A: Record<string, DeepPartial<TranslationBundle>> = {
     },
     hero: {
       tagline: 'Jogue instantaneamente. Em qualquer lugar. A qualquer hora.',
-      headline: 'Dez minijogos de navegador feitos para diversão imediata',
-      subheadline: 'Jogue arcade, quebra-cabeças e estratégia direto no navegador sem instalar nada.',
+      headline: '100 minijogos de navegador feitos para diversão imediata',
+      subheadline: 'Jogue arcade, quebra-cabeças, tabuleiro, corrida e estratégia direto no navegador sem instalar nada.',
       ctaPrimary: 'Ver Todos os Jogos',
     },
     common: {
       playNow: 'Jogar Agora', pause: 'Pausar', resume: 'Continuar', restart: 'Reiniciar',
       installApp: 'Instalar App', score: 'Pontos', bestScore: 'Recorde', gameOver: 'Fim de Jogo', youWin: 'Você Venceu!',
     },
-    categories: { arcade: 'Arcade', puzzle: 'Quebra-cabeça', strategy: 'Estratégia', memory: 'Memória', classic: 'Clássicos' },
+    categories: {
+      arcade: 'Arcade e Ação',
+      puzzle: 'Quebra-cabeça',
+      board: 'Jogos de Tabuleiro',
+      'racing-sports': 'Corrida e Esportes',
+      casual: 'Casual',
+      strategy: 'Estratégia',
+      'word-edu': 'Palavras e Educativos',
+      adventure: 'Aventura',
+      skill: 'Habilidade e Competitivo',
+    },
   },
   fr: {
     nav: {
@@ -229,15 +253,25 @@ export const LOCALES_GROUP_A: Record<string, DeepPartial<TranslationBundle>> = {
     },
     hero: {
       tagline: 'Jouez instantanément. Partout. À tout moment.',
-      headline: 'Dix mini-jeux HTML5 jouables immédiatement sans téléchargement',
-      subheadline: 'Arcade, réflexion et stratégie optimisés pour mobile et ordinateur avec mode hors-ligne.',
+      headline: '100 mini-jeux HTML5 jouables immédiatement sans téléchargement',
+      subheadline: 'Arcade, réflexion, plateau, course et stratégie optimisés pour mobile et ordinateur avec mode hors-ligne.',
       ctaPrimary: 'Parcourir les jeux',
     },
     common: {
       playNow: 'Jouer', pause: 'Pause', resume: 'Reprendre', restart: 'Recommencer',
       installApp: 'Installer l’app', score: 'Score', bestScore: 'Record', gameOver: 'Partie terminée', youWin: 'Victoire !',
     },
-    categories: { arcade: 'Arcade', puzzle: 'Casse-tête', strategy: 'Stratégie', memory: 'Mémoire', classic: 'Classiques' },
+    categories: {
+      arcade: 'Arcade et Action',
+      puzzle: 'Casse-tête',
+      board: 'Jeux de Société',
+      'racing-sports': 'Course et Sport',
+      casual: 'Casual',
+      strategy: 'Stratégie',
+      'word-edu': 'Mots et Éducatif',
+      adventure: 'Aventure',
+      skill: 'Adresse et Compétition',
+    },
   },
   de: {
     nav: {
@@ -248,15 +282,25 @@ export const LOCALES_GROUP_A: Record<string, DeepPartial<TranslationBundle>> = {
     },
     hero: {
       tagline: 'Sofort spielen. Überall. Jederzeit.',
-      headline: 'Zehn handgefertigte Browser-Minispiele für sofortigen Spielspaß',
-      subheadline: 'Spiele Arcade-, Puzzle- und Strategieklassiker direkt im Browser ohne Installation.',
+      headline: '100 handgefertigte Browser-Minispiele für sofortigen Spielspaß',
+      subheadline: 'Spiele Arcade-, Puzzle-, Brett-, Renn- und Strategiespiele direkt im Browser ohne Installation.',
       ctaPrimary: 'Alle Spiele ansehen',
     },
     common: {
       playNow: 'Jetzt spielen', pause: 'Pause', resume: 'Fortsetzen', restart: 'Neustart',
       installApp: 'App installieren', score: 'Punkte', bestScore: 'Bestwert', gameOver: 'Spiel vorbei', youWin: 'Gewonnen!',
     },
-    categories: { arcade: 'Arcade', puzzle: 'Puzzle', strategy: 'Strategie', memory: 'Gedächtnis', classic: 'Klassiker' },
+    categories: {
+      arcade: 'Arcade & Action',
+      puzzle: 'Puzzle',
+      board: 'Brettspiele',
+      'racing-sports': 'Rennen & Sport',
+      casual: 'Casual',
+      strategy: 'Strategie',
+      'word-edu': 'Wort & Lernen',
+      adventure: 'Abenteuer',
+      skill: 'Geschick & Duell',
+    },
   },
   ar: {
     nav: {
@@ -267,8 +311,8 @@ export const LOCALES_GROUP_A: Record<string, DeepPartial<TranslationBundle>> = {
     },
     hero: {
       tagline: 'العب فوراً. في أي مكان. في أي وقت.',
-      headline: 'عشر ألعاب متصفح احترافية جاهزة للعب الفوري',
-      subheadline: 'استمتع بألعاب الأركيد والألغاز والاستراتيجية على الهاتف أو الكمبيوتر بدون تحميل أو تسجيل.',
+      headline: '100 لعبة متصفح احترافية جاهزة للعب الفوري',
+      subheadline: 'استمتع بألعاب الأركيد والألغاز والطاولة والسباق والاستراتيجية على الهاتف أو الكمبيوتر بدون تحميل أو تسجيل.',
       ctaPrimary: 'تصفح جميع الألعاب', ctaSecondary: 'دليل التحكم',
     },
     common: {
@@ -277,7 +321,17 @@ export const LOCALES_GROUP_A: Record<string, DeepPartial<TranslationBundle>> = {
       moves: 'الحركات', time: 'الوقت', gameOver: 'انتهت اللعبة', youWin: 'لقد فزت!', playAgain: 'العب مجدداً',
       howToPlay: 'طريقة اللعب', sponsoredLabel: 'إعلان',
     },
-    categories: { arcade: 'أركيد', puzzle: 'ألغاز', strategy: 'استراتيجية', memory: 'ذاكرة', classic: 'كلاسيكية' },
+    categories: {
+      arcade: 'أركيد وأكشن',
+      puzzle: 'ألغاز',
+      board: 'ألعاب الطاولة',
+      'racing-sports': 'سباق ورياضة',
+      casual: 'كاجوال',
+      strategy: 'استراتيجية',
+      'word-edu': 'كلمات وتعليمية',
+      adventure: 'مغامرة',
+      skill: 'مهارة وتنافس',
+    },
     games: {
       snake: { title: 'ثعبان الأركيد', shortDescription: 'وجه الثعبان واجمع النقاط دون الاصطدام.' },
       '2048': { title: 'دمج 2048', shortDescription: 'حرك الأرقام المتشابهة وادمجها للوصول إلى 2048.' },
@@ -300,7 +354,7 @@ export const LOCALES_GROUP_A: Record<string, DeepPartial<TranslationBundle>> = {
     },
     hero: {
       tagline: '随时随地，即点即玩。',
-      headline: '十款精选 HTML5 浏览器小游戏，打开即玩',
+      headline: '100 款精选 HTML5 浏览器小游戏，打开即玩',
       subheadline: '无需下载应用或注册账号，支持手机触控与桌面键盘操作，并可离线缓存畅玩。',
       ctaPrimary: '浏览全部游戏',
     },
@@ -308,7 +362,17 @@ export const LOCALES_GROUP_A: Record<string, DeepPartial<TranslationBundle>> = {
       playNow: '立即游玩', pause: '暂停', resume: '继续', restart: '重新开始',
       installApp: '安装应用', score: '得分', bestScore: '最高分', gameOver: '游戏结束', youWin: '你赢了！',
     },
-    categories: { arcade: '街机', puzzle: '益智', strategy: '策略', memory: '记忆', classic: '经典' },
+    categories: {
+      arcade: '街机动作',
+      puzzle: '益智解谜',
+      board: '棋牌桌游',
+      'racing-sports': '赛车体育',
+      casual: '休闲小游戏',
+      strategy: '策略经营',
+      'word-edu': '文字益智',
+      adventure: '冒险闯关',
+      skill: '技巧竞技',
+    },
   },
   ja: {
     nav: {
@@ -319,7 +383,7 @@ export const LOCALES_GROUP_A: Record<string, DeepPartial<TranslationBundle>> = {
     },
     hero: {
       tagline: 'いつでも、どこでも、すぐにプレイ。',
-      headline: 'ダウンロード不要で遊べる10種類の本格ブラウザゲーム',
+      headline: 'ダウンロード不要で遊べる100種類の本格ブラウザゲーム',
       subheadline: 'スマホのタッチ操作にもPCのキーボード操作にも対応。オフラインPWAプレイも可能です。',
       ctaPrimary: 'ゲーム一覧を見る',
     },
@@ -327,7 +391,17 @@ export const LOCALES_GROUP_A: Record<string, DeepPartial<TranslationBundle>> = {
       playNow: '今すぐ遊ぶ', pause: '一時停止', resume: '再開', restart: 'やり直す',
       installApp: 'アプリをインストール', score: 'スコア', bestScore: 'ベスト', gameOver: 'ゲームオーバー', youWin: 'クリア！',
     },
-    categories: { arcade: 'アーケード', puzzle: 'パズル', strategy: '戦略', memory: '記憶', classic: 'クラシック' },
+    categories: {
+      arcade: 'アーケード',
+      puzzle: 'パズル',
+      board: 'ボードゲーム',
+      'racing-sports': 'レース・スポーツ',
+      casual: 'カジュアル',
+      strategy: '戦略',
+      'word-edu': 'ワード・学習',
+      adventure: 'アドベンチャー',
+      skill: 'スキル・対戦',
+    },
   },
   ko: {
     nav: {
@@ -338,15 +412,25 @@ export const LOCALES_GROUP_A: Record<string, DeepPartial<TranslationBundle>> = {
     },
     hero: {
       tagline: '언제 어디서나 즉시 플레이.',
-      headline: '설치 없이 바로 즐기는 10가지 HTML5 미니 게임',
-      subheadline: '모바일 터치와 데스크톱 키보드에 모두 최적화된 아케이드, 퍼즐, 전략 게임을 만나보세요.',
+      headline: '설치 없이 바로 즐기는 100가지 HTML5 미니 게임',
+      subheadline: '모바일 터치와 데스크톱 키보드에 모두 최적화된 아케이드, 퍼즐, 보드, 전략 게임을 만나보세요.',
       ctaPrimary: '전체 게임 보기',
     },
     common: {
       playNow: '지금 플레이', pause: '일시정지', resume: '계속하기', restart: '다시 시작',
       installApp: '앱 설치', score: '점수', bestScore: '최고 기록', gameOver: '게임 오버', youWin: '승리!',
     },
-    categories: { arcade: '아케이드', puzzle: '퍼즐', strategy: '전략', memory: '기억력', classic: '클래식' },
+    categories: {
+      arcade: '아케이드',
+      puzzle: '퍼즐',
+      board: '보드 게임',
+      'racing-sports': '레이싱·스포츠',
+      casual: '캐주얼',
+      strategy: '전략',
+      'word-edu': '단어·교육',
+      adventure: '어드벤처',
+      skill: '스킬·경쟁',
+    },
   },
   ru: {
     nav: {
@@ -357,14 +441,24 @@ export const LOCALES_GROUP_A: Record<string, DeepPartial<TranslationBundle>> = {
     },
     hero: {
       tagline: 'Играйте мгновенно. Везде. Всегда.',
-      headline: 'Десять полноценных браузерных мини-игр без установки',
-      subheadline: 'Аркады, головоломки и стратегии для телефона и компьютера с поддержкой офлайн-режима.',
+      headline: '100 полноценных браузерных мини-игр без установки',
+      subheadline: 'Аркады, головоломки, настольные игры, гонки и стратегии для телефона и компьютера.',
       ctaPrimary: 'Смотреть все игры',
     },
     common: {
       playNow: 'Играть', pause: 'Пауза', resume: 'Продолжить', restart: 'Заново',
       installApp: 'Установить приложение', score: 'Счёт', bestScore: 'Рекорд', gameOver: 'Игра окончена', youWin: 'Победа!',
     },
-    categories: { arcade: 'Аркады', puzzle: 'Головоломки', strategy: 'Стратегии', memory: 'Память', classic: 'Классика' },
+    categories: {
+      arcade: 'Аркады и экшен',
+      puzzle: 'Головоломки',
+      board: 'Настольные игры',
+      'racing-sports': 'Гонки и спорт',
+      casual: 'Казуальные',
+      strategy: 'Стратегии',
+      'word-edu': 'Слова и обучение',
+      adventure: 'Приключения',
+      skill: 'Реакция и дуэли',
+    },
   },
 };

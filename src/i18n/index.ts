@@ -1,7 +1,20 @@
+import { GAMES_CATALOG } from '../data/games';
 import { EN_TRANSLATIONS } from './en';
 import { LOCALES_GROUP_A } from './localesA';
 import { LOCALES_GROUP_B } from './localesB';
 import type { TranslationBundle } from './types';
+
+const CATALOG_GAME_FALLBACKS: Record<string, { title: string; shortDescription: string }> = Object.fromEntries(
+  GAMES_CATALOG.map((g) => [g.slug, { title: g.title, shortDescription: g.shortDescription }])
+);
+
+const BASE_EN_TRANSLATIONS: TranslationBundle = {
+  ...EN_TRANSLATIONS,
+  games: {
+    ...CATALOG_GAME_FALLBACKS,
+    ...EN_TRANSLATIONS.games,
+  },
+};
 
 function deepMerge<T extends Record<string, unknown>>(base: T, override?: Record<string, unknown>): T {
   if (!override) return base;
@@ -29,7 +42,7 @@ export function getTranslations(
   const code = (langCode || 'en').toLowerCase().split('-')[0];
   const localePartial = code === 'en' ? undefined : ALL_PARTIALS[code];
   let merged = deepMerge(
-    EN_TRANSLATIONS as unknown as Record<string, unknown>,
+    BASE_EN_TRANSLATIONS as unknown as Record<string, unknown>,
     localePartial as unknown as Record<string, unknown>
   ) as unknown as TranslationBundle;
 

@@ -45,20 +45,20 @@ export const MONETAG_CONFIG = {
 };
 
 export const SITE_CONFIG = {
-  brandName: 'GOO GAME PLAY',
-  shortName: 'GOO PLAY',
+  brandName: 'GOO-100 GAME PLAY',
+  shortName: 'GOO-100',
   tagline: 'Play Instantly. Anywhere. Anytime.',
   contactEmail: 'support@googameplay.com',
   primaryKeywords: [
     'Free online games',
-    'Play games online',
-    'Browser games',
-    'Mini games online',
+    'Play browser games',
     'HTML5 games',
-    'Mobile browser games',
-    'Free arcade games',
+    'Mini games online',
+    'Free mobile games',
+    'Puzzle games',
+    'Arcade games',
     'No download games',
-    'Puzzle games online',
-    'Casual games online',
+    'Play games in browser',
+    '100 free browser games',
   ],
 };

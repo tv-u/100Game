@@ -14,6 +14,11 @@ export const AllGamesPage: React.FC = () => {
   const [category, setCategory] = useState<string>('all');
   const [sortBy, setSortBy] = useState<'default' | 'popular' | 'alpha'>('default');
 
+  const urlQ = searchParams.get('q') || '';
+  React.useEffect(() => {
+    setQuery(urlQ);
+  }, [urlQ]);
+
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     const list = visibleGames.filter((g) => {
@@ -41,8 +46,8 @@ export const AllGamesPage: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 space-y-6">
       <SeoHeadSync
-        title={`${t.nav.games} | GOO GAME PLAY`}
-        description="Search, filter, and play all 10 free HTML5 mini games instantly in your mobile or desktop browser."
+        title={`${t.nav.games} | GOO-100 GAME PLAY`}
+        description="Search, filter, and play all 100 free HTML5 mini games across 9 categories instantly in your mobile or desktop browser."
       />
 
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">

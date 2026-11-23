@@ -184,7 +184,7 @@ export const LegalPage: React.FC<{ doc: 'privacy' | 'terms' | 'cookies' | 'discl
     privacy: [
       {
         heading: 'Anonymous Guest Play',
-        body: 'GOO GAME PLAY does not require account registration, names, phone numbers, or passwords to play any of the 10 HTML5 games. Your favorites, recently played list, theme, and high scores remain locally on your device in browser storage.',
+        body: 'GOO GAME PLAY does not require account registration, names, phone numbers, or passwords to play any of the 100 HTML5 games. Your favorites, recently played list, theme, and high scores remain locally on your device in browser storage.',
       },
       {
         heading: 'Analytics & Error Logging',
@@ -317,8 +317,8 @@ export const SitemapPage: React.FC = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="rounded-2xl border border-slate-200 dark:border-white/10 bg-white dark:bg-[#111524] p-5 space-y-3">
-          <h2 className="font-display text-lg font-bold">All 10 Games</h2>
-          <ul className="space-y-2 text-sm">
+          <h2 className="font-display text-lg font-bold">All 100 Games</h2>
+          <ul className="space-y-2 text-sm max-h-[540px] overflow-y-auto pr-1">
             {visibleGames.map((g) => (
               <li key={g.slug}>
                 <Link to={`/${lang}/games/${g.slug}/`} className="text-violet-600 dark:text-violet-400 hover:underline">

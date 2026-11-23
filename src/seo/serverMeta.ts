@@ -118,7 +118,7 @@ export function buildRouteSeo(
     });
   } else if (subSegments[0] === 'games' && subSegments.length === 1) {
     title = `${t.nav.games} | ${SITE_CONFIG.brandName}`;
-    description = `Browse and play all 10 free HTML5 mini games online in ${langInfo.englishName} on mobile and desktop.`;
+    description = `Browse and play all 100 free HTML5 mini games online in ${langInfo.englishName} on mobile and desktop.`;
     breadcrumbs.push({ name: t.nav.games, item: canonicalUrl });
   } else if (subSegments[0] === 'games' && subSegments.length === 2) {
     const game = getGameBySlug(subSegments[1]);
@@ -131,6 +131,12 @@ export function buildRouteSeo(
       breadcrumbs.push({ name: t.nav.games, item: `${baseUrl}/${lang}/games/` });
       breadcrumbs.push({ name: gameTitle, item: canonicalUrl });
 
+      const multiplayerSlugs = new Set([
+        'tic-tac-toe', 'chess', 'checkers', 'ludo', 'connect-four', 'reversi',
+        'dots-and-boxes', 'mancala', 'chinese-checkers', 'air-hockey',
+        'tic-tac-toe-ultimate', 'rock-paper-scissors', 'pool-billiards',
+      ]);
+
       schemas.push({
         '@context': 'https://schema.org',
         '@type': 'VideoGame',
@@ -140,7 +146,7 @@ export function buildRouteSeo(
         gamePlatform: ['Web Browser', 'Mobile Web', 'Desktop Web'],
         applicationCategory: 'Game',
         operatingSystem: 'Android, iOS, Windows, macOS, Linux',
-        playMode: game.slug === 'tic-tac-toe' ? ['SinglePlayer', 'MultiPlayer'] : 'SinglePlayer',
+        playMode: multiplayerSlugs.has(game.slug) ? ['SinglePlayer', 'MultiPlayer'] : 'SinglePlayer',
         url: canonicalUrl,
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
       });
@@ -171,7 +177,7 @@ export function buildRouteSeo(
     }
   } else if (subSegments[0] === 'instructions' && subSegments.length === 1) {
     title = `${t.nav.instructions} | ${SITE_CONFIG.brandName}`;
-    description = 'Complete desktop keyboard and mobile touch control instructions for all 10 games.';
+    description = 'Complete desktop keyboard and mobile touch control instructions for all 100 games.';
     breadcrumbs.push({ name: t.nav.instructions, item: canonicalUrl });
   } else if (subSegments[0] === 'favorites' && subSegments.length === 1) {
     title = `${t.nav.favorites} | ${SITE_CONFIG.brandName}`;

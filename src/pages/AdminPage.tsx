@@ -47,6 +47,7 @@ export const AdminPage: React.FC = () => {
 
   // Editable states
   const [selectedGame, setSelectedGame] = useState(GAMES_CATALOG[0].slug);
+  const [gameSearch, setGameSearch] = useState('');
   const [transLang, setTransLang] = useState('en');
   const [transKey, setTransKey] = useState('hero.headline');
   const [transValue, setTransValue] = useState('');
@@ -287,7 +288,7 @@ export const AdminPage: React.FC = () => {
             <div className="rounded-2xl border border-slate-200 dark:border-white/10 bg-white dark:bg-[#111524] p-5">
               <div className="text-xs text-slate-500">Active Games Enabled</div>
               <div className="font-mono text-3xl font-bold tabular-nums mt-1">
-                {GAMES_CATALOG.filter((g) => overview.gameOverrides[g.slug]?.enabled !== false).length} / 10
+                {GAMES_CATALOG.filter((g) => overview.gameOverrides[g.slug]?.enabled !== false).length} / 100
               </div>
             </div>
             <div className="rounded-2xl border border-slate-200 dark:border-white/10 bg-white dark:bg-[#111524] p-5">
@@ -315,24 +316,35 @@ export const AdminPage: React.FC = () => {
       {tab === 'games' && (
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           <div className="lg:col-span-4 space-y-2">
-            {GAMES_CATALOG.map((g) => {
-              const enabled = overview.gameOverrides[g.slug]?.enabled !== false;
-              return (
-                <button
-                  key={g.slug}
-                  type="button"
-                  onClick={() => setSelectedGame(g.slug)}
-                  className={`w-full px-4 py-3 rounded-xl flex items-center justify-between text-sm font-semibold border ${
-                    selectedGame === g.slug
-                      ? 'bg-violet-600 text-white border-violet-600'
-                      : 'bg-white dark:bg-[#111524] border-slate-200 dark:border-white/10'
-                  }`}
-                >
-                  <span>{g.title}</span>
-                  <span className="text-[11px] font-mono">{enabled ? 'ON' : 'OFF'}</span>
-                </button>
-              );
-            })}
+            <input
+              type="search"
+              value={gameSearch}
+              onChange={(e) => setGameSearch(e.target.value)}
+              placeholder="Filter 100 games..."
+              className="w-full min-h-[40px] px-3 rounded-xl border border-slate-200 dark:border-white/15 bg-white dark:bg-[#0D132B] text-xs"
+            />
+            <div className="space-y-1.5 max-h-[460px] overflow-y-auto pr-1">
+              {GAMES_CATALOG.filter(
+                (g) => !gameSearch.trim() || g.title.toLowerCase().includes(gameSearch.toLowerCase())
+              ).map((g) => {
+                const enabled = overview.gameOverrides[g.slug]?.enabled !== false;
+                return (
+                  <button
+                    key={g.slug}
+                    type="button"
+                    onClick={() => setSelectedGame(g.slug)}
+                    className={`w-full px-3.5 py-2.5 rounded-xl flex items-center justify-between text-xs font-semibold border ${
+                      selectedGame === g.slug
+                        ? 'bg-violet-600 text-white border-violet-600'
+                        : 'bg-white dark:bg-[#111524] border-slate-200 dark:border-white/10'
+                    }`}
+                  >
+                    <span className="truncate">#{String(g.number).padStart(2, '0')} {g.title}</span>
+                    <span className="text-[11px] font-mono shrink-0 ml-2">{enabled ? 'ON' : 'OFF'}</span>
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
           <form
